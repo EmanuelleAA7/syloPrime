@@ -304,7 +304,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" style="font-size:1rem;" id="dataTable" width="100%" cellspacing="0">
+                                        <table id="id_qualidade" class="table table-bordered" style="font-size:1rem;" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Data</th>
@@ -343,9 +343,8 @@
                             </div>
 
                         </div>
-
-                    </div>
-
+                      
+<button onclick="pdff()" type="button">Gerar PDF</button>
                     <!-- Gráfico Umidade Row -->
 
 
@@ -559,12 +558,50 @@
         });
     }
 
-    function gerar() {
-        Swal.fire({
+    // function gerar() {
+    //     Swal.fire({
+    //         title: "Aviso!",
+    //         text: "Relatório Gerado com Sucesso.",
+    //         type: "success",
+    //         button: "Ok!",
+    //     });
+    // }
+    
+function gerar() {
+    Swal.fire({
             title: "Aviso!",
             text: "Relatório Gerado com Sucesso.",
             type: "success",
             button: "Ok!",
         });
-    }
+        
+    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>RelatórioQualidade</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + document.getElementById("id_qualidade").innerHTML + '</table></body></html>';
+ 
+    var htmlBase64 = btoa(htmlPlanilha);
+    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
+ 
+    var hyperlink = document.createElement("a");
+    hyperlink.download = `Relatorio_Qualidade-${localStorage.usuario_bandtec}`;
+    hyperlink.href = link;
+    hyperlink.style.display = 'none';
+ 
+    document.body.appendChild(hyperlink);
+    hyperlink.click();
+    document.body.removeChild(hyperlink);
+}
+
+function pdff(){
+//Tão simples
+var doc = new jsPDF();
+// definir o tamanho da fonte...
+doc.setFontSize(22);
+// Adicionar texto
+doc.text(20, 20, 'Meu PDF');
+// adicionar outra pagina
+doc.addPage();
+// selecionar outro tamanho de fonte
+doc.setFontSize(16);
+// adicionar texto
+doc.text(20, 30, 'Olá eu sou um texto!');
+}
 </script>
