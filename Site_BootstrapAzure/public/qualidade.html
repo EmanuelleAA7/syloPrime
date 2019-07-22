@@ -245,31 +245,33 @@
                         <h1 class="h3 mb-0 text-gray-800">Qualidade</h1>
 
                         <!-- Botão relatório ínicio-->
-                        <a   class="btn btn-warning btn-icon-split">
+                        <a download="somedata.xlsx" id="button-a" onclick="return ExcellentExport.convert({ anchor: this, filename: 'RelatorioQualidade', format: 'xlsx'},[{name: 'Relatorio Qualidade', from: {table: 'myTable'}}]);" class="btn btn-warning btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-arrow-right"></i>
                             </span>
-                            <span style="color:white" id="btnExport" onclick="gerar()" class="text">Gerar Relatório Excel</span>
+                            <span style="color:white" class="text">Gerar Relatório Excel</span>
                         </a>
 
                         <!-- Botão relatório fim-->
 
                     </div>
-
+                    
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">           </h1>
+                            <h1 class="h3 mb-0 text-gray-800">              </h1>
+    
+                            <!-- Botão relatório ínicio-->
+                            <a  onclick="print()" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span style="color:white" class="text">Gerar Relatório PDF</span>
+                            </a>
+    
+                            <!-- Botão relatório fim-->
+    
+                        </div>
+                        
 
-                        <!-- Botão relatório ínicio-->
-                        <a   class="btn btn-warning btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                            <span style="color:white" id="btnExport" onclick="print()" class="text">Gerar Relatório PDF</span>
-                        </a>
-
-                        <!-- Botão relatório fim-->
-
-                    </div>
 
 
                     <!-- Gráfico qualidade Row -->
@@ -318,7 +320,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table id="id_qualidade" class="table table-bordered" style="font-size:1rem;" id="dataTable" width="100%" cellspacing="0">
+                                        <table id="myTable" class="table table-bordered" style="font-size:1rem;" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Data</th>
@@ -333,6 +335,10 @@
                                                     <th class='dark-green'>Qualidade</th>
                                                 </tr>
                                             </thead>
+                                            <tbody id="tbRelatorio">
+
+
+                                            </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <th>Data</th>
@@ -347,17 +353,15 @@
                                                     <th class='dark-green'>Qualidade</th>
                                                 </tr>
                                             </tfoot>
-                                            <tbody id="tbRelatorio">
 
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                      
+
+                    </div>
 
                     <!-- Gráfico Umidade Row -->
 
@@ -428,13 +432,7 @@
     <!-- Page level custom scripts -->
     <script src="js-func/demo/chart-pie-demo.js"></script>
 
-
-
-  
-
 </body>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js-func/2.4.0/Chart.min.js"></script>
 <script src="js-func/demo/chart-area-demo.js"></script>
 <!--registro teste-->
@@ -447,30 +445,156 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<script src="js/xlsx.core.min.js"></script>
+<script src="js/FileSaver.js"></script>
+<script src="js/tableexport.js"></script>
+<!-- <script src="js/jquery.js"></script> -->
+<!-- <script lang="javascript" src="js/xlsx.full.min.js"></script> -->
+<!-- <script lang="javascript" src="js/FileSaver.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+<script type="text/javascript" src="js/excellentexport.js"></script>
+<script src="http://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
 <script>
-    import html2canvas from 'html2canvas';
-    import jsPDF from 'jsPDF';
-    
-    
-    
+        import html2canvas from 'html2canvas';
+        import jsPDF from 'jsPDF';
+        
+        
+        
+        // Variant
+        // This one lets you improve the PDF sharpness by scaling up the HTML node tree to render as an image before getting pasted on the PDF.
+        function print(quality = 1) {
+                const filename  = 'RelatorioQualidade.pdf';
+        
+                html2canvas(document.querySelector('#nodeToRenderAsPDF'), 
+                                        {scale: quality}
+                                 ).then(canvas => {
+                    let pdf = new jsPDF('p', 'mm', 'a4');
+                    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+                    pdf.save(filename);
+                });
+            }
+        
+        
+        
+        </script>
+<script>
+    require(['js/excellentexport'], function(ee) {
+        window.ExcellentExport = ee;
+    });
+</script>
+
+
+<script>
+</script>
+
+
+<script>
+    function Export() {
+        $("#myTable").table2excel({
+            filename: "RelatorioQualidade.xls"
+        });
+    }
+</script>
+
+<script>
+    // function fnExcelReport() {
+    //     var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    //     tab_text = tab_text + '<head><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>';
+
+    //     tab_text = tab_text + '<x:Name>Test Sheet</x:Name>';
+
+    //     tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    //     tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+
+    //     tab_text = tab_text + "<table border='1px'>";
+    //     tab_text = tab_text + $('#myTable').html();
+    //     tab_text = tab_text + '</table></body></html>';
+
+    //     var data_type = 'data:application/vnd.ms-excel';
+
+    //     var ua = window.navigator.userAgent;
+    //     var msie = ua.indexOf("MSIE ");
+
+    //     if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    //         if (window.navigator.msSaveBlob) {
+    //             var blob = new Blob([tab_text], {
+    //                 type: "application/csv;charset=utf-8;"
+    //             });
+    //             navigator.msSaveBlob(blob, 'Test file.xls');
+    //         }
+    //     } else {
+    //         $('#test').attr('href', data_type + ', ' + encodeURIComponent(tab_text));
+    //         $('#test').attr('download', 'Test file.xls');
+    //     }
+
+    // }
+</script>
+
+<script>
+    // function exportTableToExcel(tableID, filename = ''){
+    //     var downloadLink;
+    //     var dataType = 'application/vnd.ms-excel';
+    //     var tableSelect = document.getElementById(tableID);
+    //     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    //     // Specify file name
+    //     filename = filename?filename+'.xls':'excel_data.xls';
+
+    //     // Create download link element
+    //     downloadLink = document.createElement("a");
+
+    //     document.body.appendChild(downloadLink);
+
+    //     if(navigator.msSaveOrOpenBlob){
+    //         var blob = new Blob(['\ufeff', tableHTML], {
+    //             type: dataType
+    //         });
+    //         navigator.msSaveOrOpenBlob( blob, filename);
+    //     }else{
+    //         // Create a link to the file
+    //         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+    //         // Setting the file name
+    //         downloadLink.download = filename;
+
+    //         //triggering the function
+    //         downloadLink.click();
+    //     }
+    // }
+</script>
+
+<script>
+    // var wb = XLSX.utils.table_to_book(document.getElementById('myTable'), {sheet:"Sheet JS"});
+    // var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+    // function s2ab(s) {
+    //                 var buf = new ArrayBuffer(s.length);
+    //                 var view = new Uint8Array(buf);
+    //                 for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+    //                 return buf;
+    // }
+    // $("#button-a").click(function(){
+    // saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'test.xlsx');
+    // });
+</script>
+
+<script>
+    // import html2canvas from 'html2canvas';
+    // import jsPDF from 'jsPDF';
+    // function print() {
+    // 		const filename  = 'ThisIsYourPDFFilename.pdf';
+
+    // 		html2canvas(document.querySelector('#nodeToRenderAsPDF')).then(canvas => {
+    // 			let pdf = new jsPDF('p', 'mm', 'a4');
+    // 			pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+    // 			pdf.save(filename);
+    // 		});
+    // 	}
+
     // Variant
     // This one lets you improve the PDF sharpness by scaling up the HTML node tree to render as an image before getting pasted on the PDF.
-    function print(quality = 1) {
-            const filename  = 'RelatorioQualidade.pdf';
-    
-            html2canvas(document.querySelector('#nodeToRenderAsPDF'), 
-                                    {scale: quality}
-                             ).then(canvas => {
-                let pdf = new jsPDF('p', 'mm', 'a4');
-                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
-                pdf.save(filename);
-            });
-        }
-    
-    
-    
-    </script>
-    
+</script>
 
 <script>
     relatorio();
@@ -610,60 +734,4 @@
     //         button: "Ok!",
     //     });
     // }
-    
-    
-    //         function fnExcelReport(){
-    //             var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
-    //             var textRange; var j=0;
-    //             tab = document.getElementById('id_qualidade'); // id of table
-
-    //             for(j = 0 ; j < tab.rows.length ; j++) 
-    //             {     
-    //                 tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
-    //             }
-
-    //             tab_text=tab_text+"</table>";
-            
-
-    //             var ua = window.navigator.userAgent;
-    //             var msie = ua.indexOf("MSIE "); 
-
-    //             if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-    //             {
-    //                 txtArea1.document.open("txt/html","replace");
-    //                 txtArea1.document.write(tab_text);
-    //                 txtArea1.document.close();
-    //                 txtArea1.focus(); 
-    //                 sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-    //             }  
-    //             else                 //other browser not tested on IE 11
-    //                 sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    //             return (sa);
-    //         }
-
- 
-       
-            function gerar(){
-        Swal.fire({
-            title: "Aviso!",
-            text: "Relatório Gerado com Sucesso.",
-            type: "success",
-            button: "Ok!",
-        });
-        
-    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="https://www.w3.org/TR/2018/SPSD-html401-20180327/"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>RelatorioQualidade</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + document.getElementById("id_qualidade").innerHTML + '</table></body></html>';
- 
-    var htmlBase64 = btoa(htmlPlanilha);
-    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
- 
-    var hyperlink = document.createElement("a");
-    hyperlink.download = `RelatorioQualidade${localStorage.usuario_bandtec}`;
-    hyperlink.href = link;
-    hyperlink.style.display = 'none';
- 
-    document.body.appendChild(hyperlink);
-    hyperlink.click();
-    document.body.removeChild(hyperlink);
-    }
 </script>
