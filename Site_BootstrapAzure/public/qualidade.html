@@ -249,13 +249,27 @@
                             <span class="icon text-white-50">
                                 <i class="fas fa-arrow-right"></i>
                             </span>
-                            <span style="color:white" id="btnExport" onclick="fnExcelReport()" class="text">Export Table Data To Excel File</span>
+                            <span style="color:white" id="btnExport" onclick="gerar()" class="text">Gerar Relatório Excel</span>
                         </a>
 
                         <!-- Botão relatório fim-->
 
                     </div>
 
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">           </h1>
+
+                        <!-- Botão relatório ínicio-->
+                        <a   class="btn btn-warning btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span style="color:white" id="btnExport" onclick="print()" class="text">Gerar Relatório PDF</span>
+                        </a>
+
+                        <!-- Botão relatório fim-->
+
+                    </div>
 
 
                     <!-- Gráfico qualidade Row -->
@@ -433,6 +447,30 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script>
+    import html2canvas from 'html2canvas';
+    import jsPDF from 'jsPDF';
+    
+    
+    
+    // Variant
+    // This one lets you improve the PDF sharpness by scaling up the HTML node tree to render as an image before getting pasted on the PDF.
+    function print(quality = 1) {
+            const filename  = 'RelatorioQualidade.pdf';
+    
+            html2canvas(document.querySelector('#nodeToRenderAsPDF'), 
+                                    {scale: quality}
+                             ).then(canvas => {
+                let pdf = new jsPDF('p', 'mm', 'a4');
+                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+                pdf.save(filename);
+            });
+        }
+    
+    
+    
+    </script>
+    
 
 <script>
     relatorio();
@@ -574,50 +612,58 @@
     // }
     
     
-            function fnExcelReport(){
-                var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
-                var textRange; var j=0;
-                tab = document.getElementById('id_qualidade'); // id of table
+    //         function fnExcelReport(){
+    //             var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+    //             var textRange; var j=0;
+    //             tab = document.getElementById('id_qualidade'); // id of table
 
-                for(j = 0 ; j < tab.rows.length ; j++) 
-                {     
-                    tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
-                }
+    //             for(j = 0 ; j < tab.rows.length ; j++) 
+    //             {     
+    //                 tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+    //             }
 
-                tab_text=tab_text+"</table>";
+    //             tab_text=tab_text+"</table>";
             
 
-                var ua = window.navigator.userAgent;
-                var msie = ua.indexOf("MSIE "); 
+    //             var ua = window.navigator.userAgent;
+    //             var msie = ua.indexOf("MSIE "); 
 
-                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-                {
-                    txtArea1.document.open("txt/html","replace");
-                    txtArea1.document.write(tab_text);
-                    txtArea1.document.close();
-                    txtArea1.focus(); 
-                    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-                }  
-                else                 //other browser not tested on IE 11
-                    sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+    //             if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    //             {
+    //                 txtArea1.document.open("txt/html","replace");
+    //                 txtArea1.document.write(tab_text);
+    //                 txtArea1.document.close();
+    //                 txtArea1.focus(); 
+    //                 sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    //             }  
+    //             else                 //other browser not tested on IE 11
+    //                 sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
 
-                return (sa);
-            }
+    //             return (sa);
+    //         }
 
  
        
-function pdff(){
-//Tão simples
-var doc = new jsPDF();
-// definir o tamanho da fonte...
-doc.setFontSize(22);
-// Adicionar texto
-doc.text(20, 20, 'Meu PDF');
-// adicionar outra pagina
-doc.addPage();
-// selecionar outro tamanho de fonte
-doc.setFontSize(16);
-// adicionar texto
-doc.text(20, 30, 'Olá eu sou um texto!');
-}
+            function gerar(){
+        Swal.fire({
+            title: "Aviso!",
+            text: "Relatório Gerado com Sucesso.",
+            type: "success",
+            button: "Ok!",
+        });
+        
+    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="https://www.w3.org/TR/2018/SPSD-html401-20180327/"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>RelatorioQualidade</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + document.getElementById("id_qualidade").innerHTML + '</table></body></html>';
+ 
+    var htmlBase64 = btoa(htmlPlanilha);
+    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
+ 
+    var hyperlink = document.createElement("a");
+    hyperlink.download = `RelatorioQualidade${localStorage.usuario_bandtec}`;
+    hyperlink.href = link;
+    hyperlink.style.display = 'none';
+ 
+    document.body.appendChild(hyperlink);
+    hyperlink.click();
+    document.body.removeChild(hyperlink);
+    }
 </script>
