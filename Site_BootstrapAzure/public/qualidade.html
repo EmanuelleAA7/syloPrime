@@ -245,11 +245,11 @@
                         <h1 class="h3 mb-0 text-gray-800">Qualidade</h1>
 
                         <!-- Botão relatório ínicio-->
-                        <a onclick="gerar()" class="btn btn-warning btn-icon-split">
+                        <a   class="btn btn-warning btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-arrow-right"></i>
                             </span>
-                            <span style="color:white" class="text">Gerar Relatório de Qualidade</span>
+                            <span style="color:white" id="btnExport" onclick="fnExcelReport()" class="text">Export Table Data To Excel File</span>
                         </a>
 
                         <!-- Botão relatório fim-->
@@ -344,7 +344,7 @@
 
                         </div>
                       
-<button onclick="pdff()" type="button">Gerar PDF</button>
+
                     <!-- Gráfico Umidade Row -->
 
 
@@ -414,7 +414,13 @@
     <!-- Page level custom scripts -->
     <script src="js-func/demo/chart-pie-demo.js"></script>
 
+
+
+  
+
 </body>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js-func/2.4.0/Chart.min.js"></script>
 <script src="js-func/demo/chart-area-demo.js"></script>
 <!--registro teste-->
@@ -567,29 +573,39 @@
     //     });
     // }
     
-function gerar() {
-    Swal.fire({
-            title: "Aviso!",
-            text: "Relatório Gerado com Sucesso.",
-            type: "success",
-            button: "Ok!",
-        });
-        
-    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>RelatórioQualidade</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + document.getElementById("id_qualidade").innerHTML + '</table></body></html>';
- 
-    var htmlBase64 = btoa(htmlPlanilha);
-    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
- 
-    var hyperlink = document.createElement("a");
-    hyperlink.download = `Relatorio_Qualidade-${localStorage.usuario_bandtec}`;
-    hyperlink.href = link;
-    hyperlink.style.display = 'none';
- 
-    document.body.appendChild(hyperlink);
-    hyperlink.click();
-    document.body.removeChild(hyperlink);
-}
+    
+            function fnExcelReport(){
+                var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+                var textRange; var j=0;
+                tab = document.getElementById('id_qualidade'); // id of table
 
+                for(j = 0 ; j < tab.rows.length ; j++) 
+                {     
+                    tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+                }
+
+                tab_text=tab_text+"</table>";
+            
+
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE "); 
+
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+                {
+                    txtArea1.document.open("txt/html","replace");
+                    txtArea1.document.write(tab_text);
+                    txtArea1.document.close();
+                    txtArea1.focus(); 
+                    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+                }  
+                else                 //other browser not tested on IE 11
+                    sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+                return (sa);
+            }
+
+ 
+       
 function pdff(){
 //Tão simples
 var doc = new jsPDF();

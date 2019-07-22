@@ -124,6 +124,7 @@
                 text: "Preencha o campo de email!",
                 type: "warning",
                 button: "Ok!",
+                id: "btn_ok1",
             });
             email.focus();
             return false;
@@ -132,7 +133,8 @@
                 title: "Aviso!",
                 text: "Preencha o campo de senha!",
                 type: "warning",
-                button: "Ok!",
+                button:  "Ok!",
+                id: "btn_ok2",
             });
             senha.focus();
             return false;
@@ -153,6 +155,7 @@
                             text: "Login foi realizado com sucesso!",
                             type: "success",
                             button: "Ir Para Dashboard",
+                            id: "btn_ok3",
                         }).then(willDelete => {
                             verificarAutenticacao();
                         });
@@ -164,6 +167,7 @@
                         text: "Usuário / senha inválidos!",
                         type: "warning",
                         button: "Ok!",
+                        id: "btn_ok4",
                     });
                     senha.focus();
                     return false;
