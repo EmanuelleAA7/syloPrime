@@ -208,6 +208,7 @@
                 text: "Por favor, insira seu nome.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_1",
             });
             nome.focus();
             return false;
@@ -217,6 +218,7 @@
                 text: "Por favor, insira seu sobrenome.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_2",
             });
             sobrenome.focus();
             return false;
@@ -226,6 +228,7 @@
                 text: "Por favor, sua data de nascimento.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_3",
             });
             data.focus();
             return false;
@@ -235,6 +238,7 @@
                 text: "Por favor, insira seu CNPJ.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_4",
             });
             cnpj.focus();
             return false;
@@ -246,6 +250,7 @@
                 text: "Por favor, insira seu telefone.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_5",
             });
             telefone.focus();
             return false;
@@ -257,6 +262,7 @@
                 text: "Por favor, insira seu estado.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_6",
             });
             estado.focus();
             return false;
@@ -266,6 +272,7 @@
                 text: "Por favor, insira sua cidade.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_7",
             });
             cidade.focus();
             return false;
@@ -275,6 +282,7 @@
                 text: "Por favor, insira o CEP de sua propriedade.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_8",
             });
             cep.focus();
             return false;
@@ -284,6 +292,7 @@
                 text: "Por favor, insira seu email.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_9",
             });
             email.focus();
             return false;
@@ -293,6 +302,7 @@
                 text: "Por favor, insira seu nome de usuário.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_10",
             });
             nome_U.focus();
             return false;
@@ -302,6 +312,7 @@
                 text: "Por favor, insira sua senha.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_11",
             });
             senha.focus();
             return false;
@@ -311,6 +322,7 @@
                 text: "Por favor, confirme sua senha.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_12",
             });
             conf_senha.focus();
             return false;
@@ -320,6 +332,7 @@
                 text: "Confirmação de senha inváldia.",
                 icon: "warning",
                 button: "Ok!",
+                id: "ok_cadastro_13",
             });
             conf_senha.focus();
             return false;
@@ -335,6 +348,7 @@
                         text: "Cadastro foi realizado com sucesso!",
                         icon: "success",
                         button: "Ir Para Login",
+                        id: "ok_irparalogin",
                     }).then(willDelete => {
                         window.location = "login.html";
                     });
@@ -345,6 +359,7 @@
                         text: "Erro no cadastro!",
                         icon: "warning",
                         button: "Ok!",
+                        id: "ok_cadastro_14",
                     });
                     return false;
                 }
