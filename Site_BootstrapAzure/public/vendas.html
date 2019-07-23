@@ -239,21 +239,21 @@
 
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Vendas</h1>
-
-                        <!-- Botão relatório ínicio-->
-                        <a  class="btn btn-primary btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                            <span onclick="gerarvendas()" style="color:white" class="text">Gerar Relatório Excel</span>
-                        </a> 
-
-                        <!-- Botão relatório fim-->
-
-                    </div>
+                     <!-- Page Heading -->
+                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Vendas</h1>
+    
+                            <!-- Botão relatório ínicio-->
+                            <a  class="btn btn-primary btn-icon-split" download="somedata.xlsx" id="button-a" onclick="return ExcellentExport.convert({ anchor: this, filename: 'RelatorioVendas', format: 'xlsx'},[{name: 'Relatorio Vendas', from: {table: 'vendasid'}}]);" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span style="color:white" class="text">Gerar Relatório Excel</span>
+                            </a>
+    
+                            <!-- Botão relatório fim-->
+    
+                        </div>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">                      </h1>
 
@@ -439,6 +439,8 @@
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script>
 </script>
+<script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+<script type="text/javascript" src="js/excellentexport.js"></script>
 <script>
 import html2canvas from 'html2canvas';
 import jsPDF from 'jsPDF';
@@ -462,6 +464,20 @@ function print(quality = 1) {
 
 
 </script>
+
+<script>
+        function Export() {
+            Swal.fire({
+                title: "Aviso!",
+                text: "Relatório Gerado com Sucesso.",
+                type: "success",
+                button: "Ok!",
+            });
+            $("#vendasid").table2excel({
+                filename: "RelatorioVendas.xls"
+            });
+        }
+    </script>
 
 
 <script>
@@ -608,18 +624,6 @@ function print(quality = 1) {
             button: "Ok!",
         });
         
-    var htmlPlanilha = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="https://www.w3.org/TR/2018/SPSD-html401-20180327/"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>RelatorioVendas</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + document.getElementById("vendasid").innerHTML + '</table></body></html>';
- 
-    var htmlBase64 = btoa(htmlPlanilha);
-    var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
- 
-    var hyperlink = document.createElement("a");
-    hyperlink.download = `RelatorioVendas${localStorage.usuario_bandtec}`;
-    hyperlink.href = link;
-    hyperlink.style.display = 'none';
- 
-    document.body.appendChild(hyperlink);
-    hyperlink.click();
-    document.body.removeChild(hyperlink);
+    
     }
 </script>
