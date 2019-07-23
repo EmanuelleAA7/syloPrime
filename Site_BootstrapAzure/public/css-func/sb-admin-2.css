@@ -12,6 +12,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ .teste3{
+        margin-top: 5%;
+        margin-bottom: 10%;
+ }
 .yellow {
     color: rgb(255, 174, 0);
 }

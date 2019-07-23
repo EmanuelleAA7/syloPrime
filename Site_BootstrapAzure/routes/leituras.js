@@ -4,6 +4,43 @@ var router = express.Router();
 var banco = require('../app-banco');
 // não mexa nessas 3 linhas!
 
+// teste
+var pasta_projeto_site = 'Site_BootstrapAzure';
+var porta_serial = require('serialport');
+var leitura_recebida = porta_serial.parsers.Readline;
+
+require('events').EventEmitter.defaultMaxListeners = 15;
+
+//teste
+
+// function verificarPortaCom(){
+ 
+//         porta_serial.list().then(entradas_seriais => {
+    
+//             var entradas_seriais_arduino = entradas_seriais.filter(entrada_serial => {
+//                 return entrada_serial.vendorId == 2341 && entrada_serial.productId == 43;
+//                 });
+    
+//             if (entradas_seriais_arduino.length != 1) {
+//                return("Porta Com não está conectada com o cabo USB", verificarPortaCom());
+            
+//             }
+//             else{
+//                 return(verificarPortaCom())
+
+//             }
+            
+//         });
+
+//     }
+
+
+
+
+
+
+
+
 router.get('/ultimas', function(req, res, next) {
     console.log(banco.conexao);
     banco.conectar().then(pool => {
