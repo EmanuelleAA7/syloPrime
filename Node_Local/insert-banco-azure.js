@@ -80,6 +80,7 @@ function iniciar_escuta() {
                 registrar_leitura(silo1, silo2, silo3, silo4);
             } catch (e) {
                 throw new Error(`Erro ao tratar os dados recebidos do Arduino: ${e}`);
+                
             }
         });
 
