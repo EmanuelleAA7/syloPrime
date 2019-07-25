@@ -11,38 +11,69 @@ var leitura_recebida = porta_serial.parsers.Readline;
 
 require('events').EventEmitter.defaultMaxListeners = 15;
 
+let portas = 0;
 //teste
+function portaCOM() {
+    porta_serial.list().then(entradas_seriais => {
+        var entradas_seriais_arduino = entradas_seriais.filter(entrada_serial => {
+            return entrada_serial.vendorId == 2341 && entrada_serial.productId == 43;
+        });
 
-// function verificarPortaCom(){
- 
-//         porta_serial.list().then(entradas_seriais => {
-    
-//             var entradas_seriais_arduino = entradas_seriais.filter(entrada_serial => {
-//                 return entrada_serial.vendorId == 2341 && entrada_serial.productId == 43;
-//                 });
-    
-//             if (entradas_seriais_arduino.length != 1) {
-//                return("Porta Com não está conectada com o cabo USB", verificarPortaCom());
-            
-//             }
-//             else{
-//                 return(verificarPortaCom())
+        portas = entradas_seriais_arduino.length;
+    });
+}
 
-//             }
-            
-//         });
+router.get('/temporeal', (req, res, next) => {
+    console.log(banco.conexao);
+    banco.conectar().then(async pool => {
+        leituras = [];
+        try {
+            dado = await pool.request().query(`select top 4
+        temperatura,
+        umidade
+        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
+        fkSensor = idSensor and idSilo = 1 order by momentoLeitura desc; 
+        `);
+            leituras.push(dado.recordset);
+            dado = await pool.request().query(`select top 4
+        temperatura,
+        umidade
+        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
+        fkSensor = idSensor and idSilo = 2 order by momentoLeitura desc; 
+            `);
+            leituras.push(dado.recordset);
+            dado = await pool.request().query(`select top 4
+        temperatura,
+        umidade
+        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
+        fkSensor = idSensor and idSilo = 3 order by momentoLeitura desc; 
+                    `);
+            leituras.push(dado.recordset);
+            dado = await pool.request().query(`select top 4
+        temperatura,
+        umidade
+        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
+        fkSensor = idSensor and idSilo = 4 order by momentoLeitura desc; 
+                            `);
+            leituras.push(dado.recordset);
+        } catch (err) {
+            console.log(`Erro:${err}`);
+        }
+        return leituras;
+    }).then(consulta => {
+        console.log(`Resultado da consulta : ${JSON.stringify(consulta)}`);
+        res.status(200).send(consulta);
+    }).catch(err => {
+        var erro = `Erro na leitura dos últimos registros: ${err}`;
+        console.error(erro);
+        res.status(500).send(erro);
 
-//     }
-
-
-
-
-
-
-
+    }).finally(() => {
+        banco.sql.close();
+    });
+})
 
 router.get('/ultimas', function(req, res, next) {
-    console.log(banco.conexao);
     banco.conectar().then(pool => {
         var limite_linhas = 10;
         return pool.request().query(`select top ${limite_linhas} 
@@ -66,7 +97,6 @@ router.get('/ultimas', function(req, res, next) {
     }).finally(() => {
         banco.sql.close();
     });
-
 });
 
 router.get('/silos', function(req, res, next) {
@@ -314,57 +344,6 @@ router.get('/analytics', function(req, res, next) {
     });
 })
 
-router.get('/temporeal', (req, res, next) => {
-    console.log(banco.conexao);
-    banco.conectar().then(async pool => {
-        leituras = [];
-        try {
-            dado = await pool.request().query(`select top 4
-        temperatura,
-        umidade
-        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 1 order by momentoLeitura desc; 
-        `);
-            leituras.push(dado.recordset);
-            dado = await pool.request().query(`select top 4
-        temperatura,
-        umidade
-        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 2 order by momentoLeitura desc; 
-            `);
-            leituras.push(dado.recordset);
-            dado = await pool.request().query(`select top 4
-        temperatura,
-        umidade
-        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 3 order by momentoLeitura desc; 
-                    `);
-            leituras.push(dado.recordset);
-            dado = await pool.request().query(`select top 4
-        temperatura,
-        umidade
-        from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 4 order by momentoLeitura desc; 
-                            `);
-            leituras.push(dado.recordset);
-        } catch (err) {
-            console.log(`Erro:${err}`);
-        }
-        return leituras;
-    }).then(consulta => {
-        console.log(`Resultado da consulta : ${JSON.stringify(consulta)}`);
-        res.send(consulta);
-    }).catch(err => {
-        var erro = `Erro na leitura dos últimos registros: ${err}`;
-        console.error(erro);
-        res.status(500).send(erro);
-
-    }).finally(() => {
-        banco.sql.close();
-    });
-
-})
-
 router.get('/temporealmedia', (req, res, next) => {
     console.log(banco.conexao);
     banco.conectar().then(pool => {
@@ -374,7 +353,7 @@ router.get('/temporealmedia', (req, res, next) => {
         FROM LEITURA where fkSensor = 4 order by momentoLeitura desc;`);
     }).then(consulta => {
         console.log(`Resultado da consulta : ${JSON.stringify(consulta.recordset)}`);
-        res.send(consulta.recordset);
+        res.status(200).send(consulta.recordset);
     }).catch(err => {
         var erro = `Erro na leitura dos últimos registros: ${err}`;
         console.error(erro);

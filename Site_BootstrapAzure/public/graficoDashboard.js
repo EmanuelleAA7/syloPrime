@@ -111,7 +111,7 @@ function atualizarGrafico() {
         }).then(function(response) {
             if (response.ok) {
                 response.json().then(function(resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     if (dados.labels.length < 6) { //Se houver menos de 15 dados
                         dados.labels.push(resposta[0].hora); //Coloca o horário no eixo X
@@ -126,8 +126,8 @@ function atualizarGrafico() {
                         dados.datasets[1].data.push(resposta[0].umidade);
                     }
                     t.update(); //Atualiza o gráfico
-                    console.log(dados.labels.length);
-                    console.log(dados.datasets[0].data.length);
+                    // console.log(dados.labels.length);
+                    // console.log(dados.datasets[0].data.length);
                     setTimeout(atualizarGrafico, 3000);
                 });
             } else {

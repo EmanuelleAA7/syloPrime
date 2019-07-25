@@ -2,10 +2,10 @@ var desenvolvimento = false;
 
 var configuracoes = {
     producao: {
-        server: "tcc1semestre.database.windows.net",
-        user: "bandtec",
-        password: "xlr5821#YWO",
-        database: "ProjetoBandTec",
+        server: "bd-gus.database.windows.net",
+        user: "adm",
+        password: "#Gf47252577880",
+        database: "Bd-gus",
         options: {
             encrypt: true
         },

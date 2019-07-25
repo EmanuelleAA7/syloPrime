@@ -830,8 +830,8 @@
             span_nome.innerHTML = usuario;
         }
     }
-    
-   
+
+
 
     function logoff() {
         localStorage.removeItem('usuario_bandtec');
@@ -846,24 +846,71 @@
 
     tempoReal();
 
+    let cont_erros_placa = 0;
+    let cont_erros_sensores = 0;
+
     function tempoReal() {
         fetch('/leituras/temporeal', {
             cache: 'no-cache'
         }).then(function(response) {
-            if (response.ok) {
+            if (response.status == 200 || response.status == 304) {
                 response.json().then(function(resposta) {
-                    console.log(`Dados recebidosa: ${JSON.stringify(resposta)}`);
+                    let cont_erros = 0;
+                    let cont_erros_sensor = 0;
+
+                    for (teste_cont = 0; teste_cont < resposta.length; teste_cont++) {
+                        for (teste_cont_2 = 0; teste_cont_2 < resposta.length; teste_cont_2++) {
+                            if (resposta[teste_cont][teste_cont_2].umidade == 0 &&
+                                resposta[teste_cont][teste_cont_2].temperatura == 0) {
+                                cont_erros_sensor++;
+                                cont_erros++;
+                                if (cont_erros == 4) {
+                                    cont_erros_placa++;
+                                }
+                            } else {
+                                cont_erros = 0;
+                                // teste
+                            }
+                        }
+                    }
+                    if (cont_erros_sensor > 0) {
+                        cont_erros_sensores++;
+                    }
+                    if (cont_erros_sensores > 5) {
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Verifique seus sensores, algum pode estar queimado!`,
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        cont_erros_sensores = 0;
+
+                        // teste4 aquiiii aaaaaaaaa
+                    }
+                    if (cont_erros_placa > 5) {
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Verifique as placas do arduíno, alguma pode estar danificada!`,
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        cont_erros_placa = 0;
+                    }
+
+                    // console.log(`Erros Sensores: ${JSON.stringify(cont_erros_sensores)}`)
+                    // console.log(`Erros Placas: ${JSON.stringify(cont_erros_placa)}`)
+
                     for (x = 0; x < resposta.length; x++) {
                         // var contador = 0;
-                        
+
                         for (i = 0; i < 4; i++) {
-                            
-                        
+
+
                             document.getElementById(`silo${x+1}_temp${i+1}`).innerHTML = `${resposta[x][i].temperatura}ºC`;
                             document.getElementById(`silo${x+1}_umid${i+1}`).innerHTML = `${resposta[x][i].umidade}%`;
                             document.getElementById(`silo${x+1}`).classList.add(`green`);
 
-                           
+
                         }
                         for (y = 1; y < 4; y++) {
                             if (resposta[x][y].temperatura > 15) {
@@ -946,6 +993,13 @@
                         //     }
                     }
                 })
+            } else {
+                //Swal.fire({
+                //    title: "Aviso!",
+                //    text: `Erro na aquisição de dados!`,
+                //    type: "warning",
+                //    button: "Ok!",
+                //});
             }
         }).catch(function(error) {
             console.error(`Erro: ${error.message}`);
