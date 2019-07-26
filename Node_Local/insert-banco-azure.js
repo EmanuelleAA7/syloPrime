@@ -120,7 +120,7 @@ function registrar_leitura(silo1, silo2, silo3, silo4) {
             // values 
             // (${silo1.temp1},${silo1.umid1},1,1,CURRENT_TIMESTAMP),
             // (${silo1.temp2},${silo1.umid2},2,1,CURRENT_TIMESTAMP),
-            // (${silo1.temp3},${silo1.umid3},3,1,CURRENT_TIMESTAMP),
+            // (${silo1.temp3},${silo1.umid3},3,1,CURRENT_TIMESTAMP),aaaaaaa
             // (${silo1.temp4},${silo1.umid4},4,1,CURRENT_TIMESTAMP),
             // (${silo2.temp1},${silo2.umid1},5,2,CURRENT_TIMESTAMP),
             // (${silo2.temp2},${silo2.umid2},6,2,CURRENT_TIMESTAMP),
