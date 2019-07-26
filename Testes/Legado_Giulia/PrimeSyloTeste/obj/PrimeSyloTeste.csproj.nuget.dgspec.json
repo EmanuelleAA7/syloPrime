@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD:Testes/Teste_Legado_Giulia/PrimeSyloTeste/obj/PrimeSyloTeste.csproj.nuget.dgspec.json
+    "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+        "projectName": "PrimeSyloTeste",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\obj\\",
+=======
     "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {}
   },
   "projects": {
@@ -12,13 +25,16 @@
         "projectPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
         "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\obj\\",
+>>>>>>> 8e80150f5d110233a911c87933b47d73b9cff555:Testes/Legado_Giulia/PrimeSyloTeste/obj/PrimeSyloTeste.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\giuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"

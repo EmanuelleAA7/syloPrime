@@ -1,0 +1,15 @@
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\ProjetoTesteCad.deps.json
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\ProjetoTesteCad.runtimeconfig.json
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\ProjetoTesteCad.runtimeconfig.dev.json
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\ProjetoTesteCad.dll
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\bin\Debug\netcoreapp2.1\ProjetoTesteCad.pdb
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.dll
+C:\Users\Lenovo\source\repos\ProjetoTesteCad\obj\Debug\netcoreapp2.1\ProjetoTesteCad.pdb
