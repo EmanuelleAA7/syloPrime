@@ -7785,11 +7785,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD:Testes/Teste_Legado_Giulia/PrimeSyloTeste/obj/project.assets.json
       "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
       "projectName": "PrimeSyloTeste",
       "projectPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+      "projectName": "PrimeSyloTeste",
+      "projectPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+      "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\obj\\",
+>>>>>>> 8e80150f5d110233a911c87933b47d73b9cff555:Testes/Legado_Giulia/PrimeSyloTeste/obj/project.assets.json
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

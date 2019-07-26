@@ -1,0 +1,15 @@
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Teste_Relatorios.deps.json
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Teste_Relatorios.runtimeconfig.json
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Teste_Relatorios.runtimeconfig.dev.json
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Teste_Relatorios.dll
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.csprojAssemblyReference.cache
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.csproj.CoreCompileInputs.cache
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.AssemblyInfoInputs.cache
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.AssemblyInfo.cs
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\bin\Debug\netcoreapp2.1\Teste_Relatorios.pdb
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.dll
+C:\Users\giuli\Desktop\Teste_Relatorios\Teste_Relatorios\obj\Debug\netcoreapp2.1\Teste_Relatorios.pdb
