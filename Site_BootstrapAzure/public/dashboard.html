@@ -855,6 +855,7 @@
     // let placa_queimada = false;
     // let erro_mostrado = false;
 
+    let placa
 
 
     function tempoReal() {
@@ -899,7 +900,7 @@
                     if (cont_erros_sensores > 5) {
                         Swal.fire({
                             title: "Aviso!",
-                            text: `Verifique os sensores do silo ${[teste_cont]}, algum pode estar queimado !`,
+                            text: `Verifique seus sensores, algum pode estar queimado !`,
                             // aqui o numero do silo é identificado
                             type: "warning",
                             button: "Ok!",
