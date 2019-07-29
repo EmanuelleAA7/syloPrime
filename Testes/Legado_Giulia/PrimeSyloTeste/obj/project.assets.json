@@ -7778,35 +7778,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\giuli\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD:Testes/Teste_Legado_Giulia/PrimeSyloTeste/obj/project.assets.json
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
-      "projectName": "PrimeSyloTeste",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\Teste_Legado_Giulia\\PrimeSyloTeste\\obj\\",
-=======
       "projectUniqueName": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
       "projectName": "PrimeSyloTeste",
       "projectPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
       "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\obj\\",
->>>>>>> 8e80150f5d110233a911c87933b47d73b9cff555:Testes/Legado_Giulia/PrimeSyloTeste/obj/project.assets.json
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\giuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -7884,7 +7873,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'ExtentReports 4.0.3' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "O pacote 'ExtentReports 4.0.3' foi restaurado usando '.NETFramework,Version=v4.6.1' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v2.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "ExtentReports",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -7894,7 +7883,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'RazorEngine 3.10.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "O pacote 'RazorEngine 3.10.0' foi restaurado usando '.NETFramework,Version=v4.6.1' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v2.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "RazorEngine",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
