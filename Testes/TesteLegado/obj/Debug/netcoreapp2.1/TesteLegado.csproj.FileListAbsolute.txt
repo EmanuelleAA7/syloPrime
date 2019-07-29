@@ -1,0 +1,14 @@
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\TesteLegado.deps.json
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\TesteLegado.runtimeconfig.json
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\TesteLegado.runtimeconfig.dev.json
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\TesteLegado.dll
+C:\Users\Lenovo\source\repos\TesteLegado\bin\Debug\netcoreapp2.1\TesteLegado.pdb
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.dll
+C:\Users\Lenovo\source\repos\TesteLegado\obj\Debug\netcoreapp2.1\TesteLegado.pdb
