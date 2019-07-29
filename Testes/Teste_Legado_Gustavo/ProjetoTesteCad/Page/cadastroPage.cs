@@ -27,17 +27,17 @@ public class cadastroPage
     }
     public void PreencherDados()
     {
-        driver.FindElement(By.Id("nome")).SendKeys("Teste");
-        driver.FindElement(By.Id("sobrenome")).SendKeys("Teste");
-        driver.FindElement(By.Id("data")).SendKeys("18/07/2019");
-        driver.FindElement(By.Id("cnpj")).SendKeys("1111111111111");
+        driver.FindElement(By.Id("nome")).SendKeys("Teste2");
+        driver.FindElement(By.Id("sobrenome")).SendKeys("Teste2");
+        driver.FindElement(By.Id("data")).SendKeys("29/07/2019");
+        driver.FindElement(By.Id("cnpj")).SendKeys("222222222222");
         driver.FindElement(By.Id("telefone")).SendKeys("99999999999");
         driver.FindElement(By.Id("cidade")).SendKeys("São Paulo");
         driver.FindElement(By.Id("cep")).SendKeys("9988777");
-        driver.FindElement(By.Id("email")).SendKeys("Teste@teste.com");
-        driver.FindElement(By.Id("nome_U")).SendKeys("Teste");
-        driver.FindElement(By.Id("senha")).SendKeys("1234");
-        driver.FindElement(By.Id("conf_senha")).SendKeys("1234");
+        driver.FindElement(By.Id("email")).SendKeys("Teste2@teste.com");
+        driver.FindElement(By.Id("nome_U")).SendKeys("Teste2");
+        driver.FindElement(By.Id("senha")).SendKeys("12345");
+        driver.FindElement(By.Id("conf_senha")).SendKeys("12345");
 
         var selectElement = new SelectElement(driver.FindElement(By.Id("estado")));
         selectElement.SelectByText("São Paulo");

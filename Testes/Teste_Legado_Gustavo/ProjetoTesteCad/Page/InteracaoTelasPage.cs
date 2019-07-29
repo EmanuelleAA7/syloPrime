@@ -90,9 +90,8 @@ public class InteracaoTelasPage
         driver.FindElement(By.Id("email")).SendKeys("teste@gmail.com");
         driver.FindElement(By.Id("senha")).SendKeys("123456");
         driver.FindElement(By.Id("btn_login")).Click();
-        Thread.Sleep(7000);
-        Actions action = new Actions(driver);
-        action.SendKeys(Keys.Enter).Click().Perform();
+        
+  
     }
 
 
@@ -100,7 +99,7 @@ public class InteracaoTelasPage
 
     public void TirarMensagem()
     {
-        Thread.Sleep(10000);
+        Thread.Sleep(6000);
         Actions action = new Actions(driver);
         action.SendKeys(Keys.Enter).Click().Perform();
     }
