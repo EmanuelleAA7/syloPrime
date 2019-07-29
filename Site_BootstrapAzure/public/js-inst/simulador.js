@@ -9,13 +9,13 @@ function btn_propriedade() {
   }
 
   function calcular_propriedade() {
-    if(qt_sacas_p_id.value != "" &&
-    disperdicio_porcentagem_id.value != "" &&
-    preco_mao_de_obra_p_id.value != "" &&
-    valor_saca_p_id !=""){
+    if(qt_sacas_p_id.value != "" && qt_sacas_p_id.value >0 &&
+    desperdicio_porcentagem_id.value != "" && desperdicio_porcentagem_id.value>0 &&
+    preco_mao_de_obra_p_id.value != "" && preco_mao_de_obra_p_id.value>0 &&
+    valor_saca_p_id.value !="" && valor_saca_p_id.value>0){
     var qt_sacas = qt_sacas_p_id.value,
-      desperdicio_porcentagem = disperdicio_porcentagem_id.value,
-      preco_mao_de_obra = preco_mao_de_obra_p_id.value;
+      desperdicio_porcentagem = desperdicio_porcentagem_id.value,
+      preco_mao_de_obra = preco_mao_de_obra_p_id.value,
     valor_saca = valor_saca_p_id.value;
 
     var lucro_atual = ((qt_sacas * valor_saca) - ((qt_sacas * valor_saca) * (desperdicio_porcentagem / 100))) - preco_mao_de_obra;
@@ -30,14 +30,18 @@ function btn_propriedade() {
 
     resposta1.style.display = 'block';
   }else{
-    alert('Todos os campos devem estar preenchidos!');
+    alert('Todos os campos devem estar preenchidos com dados válidos!');
+    qt_sacas_p_id.value = "";
+    desperdicio_porcentagem_id.value=""; 
+    preco_mao_de_obra_p_id.value ="";
+    valor_saca_p_id.value ="";
   }
   }
 
   function calcular_terceiros() {
-    if(qt_sacas_c_id.value != "" &&
-    preco_frete_id.value != "" &&
-    preco_mao_de_obra_c_id.value != ""){
+    if(qt_sacas_c_id.value != "" && qt_sacas_c_id.value >0 &&
+    preco_frete_id.value != "" && preco_frete_id.value >0 && 
+    preco_mao_de_obra_c_id.value != "" &&  preco_mao_de_obra_c_id.value >0){
     var qt_sacas = qt_sacas_c_id.value,
       preco_frete = preco_frete_id.value,
       preco_mao_de_obra = preco_mao_de_obra_c_id.value;
@@ -53,6 +57,9 @@ function btn_propriedade() {
     resposta2.style.display = 'block';
   } 
   else{
-    alert('Todos os campos devem estar preenchidos!');
+    alert('Todos os campos devem estar preenchidos com dados válidos!');
+    qt_sacas_c_id.value ="";
+    preco_frete_id.value="";
+    preco_mao_de_obra_c_id.value="";
 
   }}

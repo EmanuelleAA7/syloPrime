@@ -846,8 +846,16 @@
 
     tempoReal();
 
-    let cont_erros_placa = 0;
+    let cont_erros_placa = 0; 
+    // contador para indicar a partir de quantas leituras eu solto o alerta
     let cont_erros_sensores = 0;
+
+    //teste para o on/off
+
+    let placa_queimada = false;
+    let erro_mostrado = false;
+
+
 
     function tempoReal() {
         fetch('/leituras/temporeal', {
@@ -855,6 +863,10 @@
         }).then(function(response) {
             if (response.status == 200 || response.status == 304) {
                 response.json().then(function(resposta) {
+                    let hoje = new Date();
+                    let hoje_total = (hoje.getHours()*3600) + (hoje.getMinutes()*60) + hoje.getSeconds();
+
+
                     let cont_erros = 0; 
                     // para cada sensor
                     let cont_erros_sensor = 0;
@@ -874,6 +886,11 @@
                                 // teste
                                 // volta pro zero pra nao ficar acumulandp
                             }
+                            let hora_leitura = (resposta[teste_cont][teste_cont_2].hora).split(':');
+                            let segundos_total = ((parseInt(hora_leitura[0])*3600)+ (parseInt(hora_leitura[1])*60)+ parseInt(hora_leitura[2]))- 10800;
+                            if((hoje_total - segundos_total) >= 900){
+                                placa_queimada = true;
+                            }
                         }
                     }
                     if (cont_erros_sensor > 0) {
@@ -883,6 +900,7 @@
                         Swal.fire({
                             title: "Aviso!",
                             text: `Verifique os sensores do silo ${[teste_cont]}, algum pode estar queimado !`,
+                            // aqui o numero do silo é identificado
                             type: "warning",
                             button: "Ok!",
                         });
@@ -899,9 +917,20 @@
                         });
                         cont_erros_placa = 0;
                     }
+                    if(placa_queimada== true && erro_mostrado != true){
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Leituras antigas, verifique se a placa Aduíno está conectada!`,
+                            type: "warning",
+                            button: "Ok!",
+                        });
+
+                        erro_mostrado = true;
+                        //pra nao ficar mostrando o alerta toda hora
+                    }
 
                     // console.log(`Erros Sensores: ${JSON.stringify(cont_erros_sensores)}`)
-                    // console.log(`Erros Placas: ${JSON.stringify(cont_erros_placa)}`) ??????????? 
+                    // console.log(`Erros Placas: ${JSON.stringify(cont_erros_placa)}`) ????? - foi
 
                     for (x = 0; x < resposta.length; x++) {
                         // var contador = 0;

@@ -30,28 +30,32 @@ router.get('/temporeal', (req, res, next) => {
         try {
             dado = await pool.request().query(`select top 4
         temperatura,
-        umidade
+        umidade,
+        FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
         fkSensor = idSensor and idSilo = 1 order by momentoLeitura desc; 
         `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
         temperatura,
-        umidade
+        umidade,
+        FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
         fkSensor = idSensor and idSilo = 2 order by momentoLeitura desc; 
             `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
         temperatura,
-        umidade
+        umidade,
+        FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
         fkSensor = idSensor and idSilo = 3 order by momentoLeitura desc; 
                     `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
         temperatura,
-        umidade
+        umidade,
+        FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
         fkSensor = idSensor and idSilo = 4 order by momentoLeitura desc; 
                             `);
