@@ -901,6 +901,9 @@
                             //subtraindo do fuso horário
                         }
                     }
+
+                    
+
                     if (cont_erros_sensor > 0) {
                         cont_erros_sensores++;
                     }
@@ -916,7 +919,7 @@
 
                         // teste4 aquiiii aaaaaaaaa
                     }
-                    if (cont_erros_placa > 5) {
+                    if (cont_erros_placa > 5){
                         Swal.fire({
                             title: "Aviso!",
                             text: `Verifique as placas dos arduínos, alguma pode estar danificada!`,
@@ -925,17 +928,7 @@
                         });
                         cont_erros_placa = 0;
                     }
-                    if(placa_queimada == true && erro_mostrado != true){
-                        Swal.fire({
-                            title: "Aviso!",
-                            text: `Leituras antigas, verifique se a placa Aduíno está conectada!`,
-                            type: "warning",
-                            button: "Ok!",
-                        });
-                        erro_mostrado = true;
-                        
-                        //pra nao ficar mostrando o alerta toda hora
-                    }
+                  
 
                 
 
@@ -955,7 +948,7 @@
                             if (resposta[x][y].temperatura > 15) {
                                 document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 1) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Temperatura de ${resposta[x][y].temperatura}ºC 
@@ -971,7 +964,7 @@
                             if (resposta[x][y].umidade > 16) {
                                 document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 1) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Umidade de ${resposta[x][y].umidade}%
@@ -988,7 +981,7 @@
                         if (resposta[x][0].temperatura > 17) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 1) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Temperatura de ${resposta[x][0].temperatura}ºC 
@@ -1004,7 +997,7 @@
                         if (resposta[x][0].umidade > 75) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 1) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Umidade de ${resposta[x][0].umidade}% 
@@ -1031,6 +1024,23 @@
                         //             }
                         //     }
                     }
+
+
+                    if(placa_queimada == true && erro_mostrado != true){
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Leituras antigas, verifique se a placa Aduíno está conectada!`,
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        erro_mostrado = true;
+                        
+                        //pra nao ficar mostrando o alerta toda hora
+                    }
+
+
+
+
                 })
             } else {
                 //Swal.fire({
