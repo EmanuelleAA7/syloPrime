@@ -33,7 +33,7 @@ router.get('/temporeal', (req, res, next) => {
         umidade,
         FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 1 order by momentoLeitura desc; 
+        fkSensor = idSensor and idSilo = 1 order by momentoLeitura desc,fksensor asc ; 
         `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
@@ -41,7 +41,7 @@ router.get('/temporeal', (req, res, next) => {
         umidade,
         FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 2 order by momentoLeitura desc; 
+        fkSensor = idSensor and idSilo = 2 order by momentoLeitura desc, fksensor asc ; 
             `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
@@ -49,7 +49,7 @@ router.get('/temporeal', (req, res, next) => {
         umidade,
         FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 3 order by momentoLeitura desc; 
+        fkSensor = idSensor and idSilo = 3 order by momentoLeitura desc,  fksensor asc ; 
                     `);
             leituras.push(dado.recordset);
             dado = await pool.request().query(`select top 4
@@ -57,7 +57,7 @@ router.get('/temporeal', (req, res, next) => {
         umidade,
         FORMAT(momentoLeitura, 'HH:mm:ss') as hora
         from Leitura,Producao as p,Silo,Sensor where fkProducao = idProducao and p.fkSilo = idSilo and 
-        fkSensor = idSensor and idSilo = 4 order by momentoLeitura desc; 
+        fkSensor = idSensor and idSilo = 4 order by momentoLeitura desc, fksensor asc; 
                             `);
             leituras.push(dado.recordset);
         } catch (err) {
@@ -65,7 +65,7 @@ router.get('/temporeal', (req, res, next) => {
         }
         return leituras;
     }).then(consulta => {
-        console.log(`Resultado da consulta : ${JSON.stringify(consulta)}`);
+        console.log(`Resultado da consultaa : ${JSON.stringify(consulta)}`);
         res.status(200).send(consulta);
     }).catch(err => {
         var erro = `Erro na leitura dos últimos registros: ${err}`;
@@ -105,7 +105,7 @@ router.get('/ultimas', function(req, res, next) {
 
 router.get('/silos', function(req, res, next) {
     console.log(banco.conexao);
-    banco.conectar().then(async pool => {
+    banco.conectar().then( async pool => {
         var limite_linhas = 4;
         var dados = [];
         try {
@@ -158,6 +158,7 @@ router.get('/silos', function(req, res, next) {
     and idProducao = 4
     and fkSilo = idSilo order by fkSensor asc, momentoLeitura desc`);
             dados.push(dado.recordset);
+                    
         } catch (err) {
             console.log(err);
         }
