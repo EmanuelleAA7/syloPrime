@@ -106,7 +106,7 @@ router.get('/ultimas', function(req, res, next) {
 router.get('/silos', function(req, res, next) {
     console.log(banco.conexao);
     banco.conectar().then(async pool => {
-        var limite_linhas = 8;
+        var limite_linhas = 4;
         var dados = [];
         try {
             dado = await pool.request().query(`select top ${limite_linhas}
@@ -119,7 +119,7 @@ router.get('/silos', function(req, res, next) {
     FORMAT(momentoLeitura,'HH:mm:ss') as hora 
     from Leitura,Producao as p,Silo as s where fkProducao = idProducao
     and idProducao = 1 
-    and fkSilo = idSilo order by momentoLeitura desc`);
+    and fkSilo = idSilo order by fkSensor asc, momentoLeitura desc`);
 
             dados.push(dado.recordset);
             dado = await pool.request().query(`select top ${limite_linhas}
@@ -132,7 +132,7 @@ router.get('/silos', function(req, res, next) {
     FORMAT(momentoLeitura,'HH:mm:ss') as hora 
     from Leitura,Producao as p,Silo as s where fkProducao = idProducao
     and idProducao = 2
-    and fkSilo = idSilo order by momentoLeitura desc`);
+    and fkSilo = idSilo order by fkSensor asc, momentoLeitura desc`);
             dados.push(dado.recordset);
             dado = await pool.request().query(`select top ${limite_linhas} 
     s.descricao,
@@ -144,7 +144,7 @@ router.get('/silos', function(req, res, next) {
     FORMAT(momentoLeitura,'HH:mm:ss') as hora 
     from Leitura,Producao as p,Silo as s where fkProducao = idProducao
     and idProducao = 3
-    and fkSilo = idSilo order by momentoLeitura desc`);
+    and fkSilo = idSilo order by fkSensor asc, momentoLeitura desc`);
             dados.push(dado.recordset);
             dado = await pool.request().query(`select top ${limite_linhas} 
     s.descricao,
@@ -156,7 +156,7 @@ router.get('/silos', function(req, res, next) {
     FORMAT(momentoLeitura,'HH:mm:ss') as hora 
     from Leitura,Producao as p,Silo as s where fkProducao = idProducao
     and idProducao = 4
-    and fkSilo = idSilo order by momentoLeitura desc`);
+    and fkSilo = idSilo order by fkSensor asc, momentoLeitura desc`);
             dados.push(dado.recordset);
         } catch (err) {
             console.log(err);
