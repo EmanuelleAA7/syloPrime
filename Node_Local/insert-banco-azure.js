@@ -100,40 +100,24 @@ function registrar_leitura(silo1, silo2, silo3, silo4) {
     banco.conectar().then(pool => {
             // return pool.request().query(`SELECT COUNT(temperatura) as 'cont' FROzzM Leitura`);
             return pool.request().query(`INSERT INTO Leitura (temperatura,umidade,fkSensor,fkProducao,momentoLeitura)
-        values 
-        (${0},${0},1,1,CURRENT_TIMESTAMP),
-        (${silo1.temp2},${silo1.umid2},2,1,CURRENT_TIMESTAMP),
-        (${silo1.temp3},${silo1.umid3},3,1,CURRENT_TIMESTAMP),
-        (${silo1.temp4},${silo1.umid4},4,1,CURRENT_TIMESTAMP),
-        (${silo2.temp1},${silo2.umid1},5,2,CURRENT_TIMESTAMP),
-        (${0},${0},6,2,CURRENT_TIMESTAMP),
-        (${silo2.temp3},${silo2.umid3},7,2,CURRENT_TIMESTAMP),
-        (${silo2.temp4},${silo2.umid4},8,2,CURRENT_TIMESTAMP),
-        (${silo3.temp1},${silo3.umid1},9,3,CURRENT_TIMESTAMP),
-        (${silo3.temp2},${silo3.umid2},10,3,CURRENT_TIMESTAMP),
-        (${silo3.temp3},${silo3.umid3},11,3,CURRENT_TIMESTAMP),
-        (${0},${0},12,3,CURRENT_TIMESTAMP),
-        (${silo4.temp1},${silo4.umid1},13,4,CURRENT_TIMESTAMP),
-        (${silo4.temp2},${silo4.umid2},14,4,CURRENT_TIMESTAMP),
-        (${silo4.temp3},${silo4.umid3},15,4,CURRENT_TIMESTAMP),
-        (${silo4.temp4},${silo4.umid4},16,4,CURRENT_TIMESTAMP);`);
-            // values 
-            // (${silo1.temp1},${silo1.umid1},1,1,CURRENT_TIMESTAMP),
-            // (${silo1.temp2},${silo1.umid2},2,1,CURRENT_TIMESTAMP),
-            // (${silo1.temp3},${silo1.umid3},3,1,CURRENT_TIMESTAMP),aaaaaaa
-            // (${silo1.temp4},${silo1.umid4},4,1,CURRENT_TIMESTAMP),
-            // (${silo2.temp1},${silo2.umid1},5,2,CURRENT_TIMESTAMP),
-            // (${silo2.temp2},${silo2.umid2},6,2,CURRENT_TIMESTAMP),
-            // (${silo2.temp3},${silo2.umid3},7,2,CURRENT_TIMESTAMP),
-            // (${silo2.temp4},${silo2.umid4},8,2,CURRENT_TIMESTAMP),
-            // (${silo3.temp1},${silo3.umid1},9,3,CURRENT_TIMESTAMP),
-            // (${silo3.temp2},${silo3.umid2},10,3,CURRENT_TIMESTAMP),
-            // (${silo3.temp3},${silo3.umid3},11,3,CURRENT_TIMESTAMP),
-            // (${silo3.temp4},${silo3.umid4},12,3,CURRENT_TIMESTAMP),
-            // (${silo4.temp1},${silo4.umid1},13,4,CURRENT_TIMESTAMP),
-            // (${silo4.temp2},${silo4.umid2},14,4,CURRENT_TIMESTAMP),
-            // (${silo4.temp3},${silo4.umid3},15,4,CURRENT_TIMESTAMP),
-            // (${silo4.temp4},${silo4.umid4},16,4,CURRENT_TIMESTAMP);`);
+       
+             values 
+             (${silo1.temp1},${silo1.umid1},1,1,CURRENT_TIMESTAMP),
+             (${silo1.temp2},${silo1.umid2},2,1,CURRENT_TIMESTAMP),
+             (${silo1.temp3},${silo1.umid3},3,1,CURRENT_TIMESTAMP),
+             (${silo1.temp4},${silo1.umid4},4,1,CURRENT_TIMESTAMP),
+             (${silo2.temp1},${silo2.umid1},5,2,CURRENT_TIMESTAMP),
+        
+             (${silo2.temp3},${silo2.umid3},7,2,CURRENT_TIMESTAMP),
+             (${silo2.temp4},${silo2.umid4},8,2,CURRENT_TIMESTAMP),
+             (${silo3.temp1},${silo3.umid1},9,3,CURRENT_TIMESTAMP),
+             (${silo3.temp2},${silo3.umid2},10,3,CURRENT_TIMESTAMP),
+           
+             (${silo3.temp4},${silo3.umid4},12,3,CURRENT_TIMESTAMP),
+             (${silo4.temp1},${silo4.umid1},13,4,CURRENT_TIMESTAMP),
+             (${silo4.temp2},${silo4.umid2},14,4,CURRENT_TIMESTAMP),
+             (${silo4.temp3},${silo4.umid3},15,4,CURRENT_TIMESTAMP),
+             (${silo4.temp4},${silo4.umid4},16,4,CURRENT_TIMESTAMP);`);
 
         })
         .catch(err => {

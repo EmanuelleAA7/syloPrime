@@ -889,13 +889,12 @@
                                 // teste
                                 // volta pro zero pra nao ficar acumulandp
                             }
-                            // let hora_leitura = (resposta[teste_cont][teste_cont_2].hora).split(':');
-                            // let segundos_total = ((parseInt(hora_leitura[0])*3600)+ (parseInt(hora_leitura[1])*60)+ parseInt(hora_leitura[2]))- 10800;
-                            // if((hoje_total - segundos_total) >= 900){
-                            //     placa_queimada = true;
-                            // }
                             let hora_leitura = (resposta[teste_cont][teste_cont_2].hora).split(':');
-                            let segundos_total = ((parseInt(hora_leitura[0])*3600) +  (parseInt(hora_leitura[1])*60)  + parseInt(hora_leitura[2]))-10800; 
+                            let segundos_total = ((parseInt(hora_leitura[0])*3600)+ (parseInt(hora_leitura[1])*60)+ parseInt(hora_leitura[2]))- 10800;
+                            if((hoje_total - segundos_total) >= 900){
+                                placa_queimada = true;
+                            }
+                            
                             //subtraindo do fuso horário
                         }
                     }
