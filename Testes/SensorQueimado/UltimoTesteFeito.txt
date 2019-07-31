@@ -1,0 +1,29 @@
+Nome do Teste:	Silo3ComFalhaNosSensores
+FullName do Teste:	SensorQueimado.SensorQueimadoFeature.Silo3ComFalhaNosSensores
+Origem do Teste:	C:\Users\giuli\Desktop\SensorQueimado\SensorQueimado\SensorQueimado\SensorQueimado.feature : linha 10
+Resultado do Teste:	Aprovado
+Duração do Teste:	0:00:50,75
+
+Resultado StandardOutput:	
+Given que o usuario já está logado
+-> done: SensorQueimadoSteps.GivenQueOUsuarioJaEstaLogado() (7,9s)
+And esta em sua página de dashboards
+-> done: SensorQueimadoSteps.GivenEstaEmSuaPaginaDeDashboards() (14,2s)
+Given que os dashboards do silo 3 estejam com temperatura 0
+0% 0ºC
+0% 0ºC
+0% 0ºC
+0% 0ºC
+0% 0ºC
+VALOR DO CONTADOR = 5
+-> done: SensorQueimadoSteps.GivenQueOsDashboardsDoSiloEstejamComTemperatura(3, 0) (25,4s)
+And o silo 3 também acusa umidade 0
+-> done: SensorQueimadoSteps.GivenOSiloTambemAcusaUmidade(3, 0) (0,0s)
+When 25 segundos se passam
+-> done: SensorQueimadoSteps.WhenSegundosSePassam(25) (0,0s)
+Then um alerta aparece na tela
+Verifique seus sensores, algum pode estar queimado !
+-> done: SensorQueimadoSteps.ThenUmAlertaApareceNaTela() (3,2s)
+
+
+

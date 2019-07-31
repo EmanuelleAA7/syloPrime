@@ -27,7 +27,7 @@ namespace SensorQueimado
         [Given(@"que os dashboards do silo (.*) estejam com temperatura (.*)")]
         public void GivenQueOsDashboardsDoSiloEstejamComTemperatura(int silo, int p1)
         {
-            contador = sensor.verificarTemperatura(silo, p1) ;
+            contador = sensor.VerificarControle(); ;
             Console.WriteLine("VALOR DO CONTADOR = " + contador);
         }
         

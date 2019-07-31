@@ -29,38 +29,23 @@ namespace SensorQueimado
             driver.FindElement(By.Id("email")).SendKeys("TesteTeste");
             driver.FindElement(By.Id("senha")).SendKeys("123456");
             driver.FindElement(By.Id("btn_login")).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(8000);
             driver.FindElement(By.XPath("/html/body/div[5]/div/div[3]/button[1]")).Click();
-            Thread.Sleep(10000);
+            Thread.Sleep(5000);
         }
 
-        internal int verificarTemperatura(int silo, int indicador_queimado)
-
+        public string GetTemperatura()
         {
-            var cont = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                var temp_atual = driver.FindElement(By.Id("silo3_temp4")).GetAttribute("innerText");
-                var umid_atual = driver.FindElement(By.Id("silo3_umid4")).GetAttribute("innerText");
-
-                Console.WriteLine("A TEMPERATURA ATUAL É: " + temp_atual);
-                Console.WriteLine("A UMIDADE ATUAL É: " + umid_atual);
-
-                if (temp_atual == "0ºC" && umid_atual == "0%")
-                {
-                    Console.WriteLine("Contador" + i);
-                    cont++;
-                }
-                else
-                {
-                    cont = 800;
-                    //os dados estão =! 0
-                }
-                Thread.Sleep(5000);
-            }
-            return cont;
-
+            string temp = driver.FindElement(By.Id("silo3_temp1")).GetAttribute("innerText");
+            return temp;
         }
+
+        public string GetUmidade()
+        {
+            string umid = driver.FindElement(By.Id("silo3_umid1")).GetAttribute("innerText");
+            return umid;
+        }
+       
 
         internal String verificarAlerta(int contador)
         {
@@ -84,5 +69,39 @@ namespace SensorQueimado
             string url = driver.Url;
             return url;
         }
+
+        static List<Medidor> medidores;
+        public int VerificarControle()
+        {
+            var contador = 0;
+            medidores = new List<Medidor>();
+
+            for(int i = 0; i<5; i++)
+            {
+                string temperatura = GetTemperatura();
+                string umidade = GetUmidade();
+                medidores.Add(new Medidor(temperatura, umidade));
+                Thread.Sleep(5000);
+            }
+
+            foreach(Medidor item in medidores)
+            {
+                Console.WriteLine(item.Umidade + " " + item.Temperatura);
+                if(item.Temperatura == "0ºC" && item.Umidade == "0%")
+                {
+                    contador++;
+                }
+                else
+                {
+                    contador--;
+                }
+            }
+            return contador;
+        }
+
+
+
+
+
     }
 }
