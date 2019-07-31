@@ -21,7 +21,7 @@ namespace SensorQueimado
 
         public void fecharDrive()
         {
-            driver.Close();
+            driver.Quit();
         }
 
         public void logarUsuario()

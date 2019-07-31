@@ -6227,11 +6227,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giuli\\Desktop\\syloPrime\\Testes\\SensorQueimado\\SensorQueimado\\SensorQueimado\\SensorQueimado.csproj",
+      "projectUniqueName": "C:\\Users\\giuli\\Desktop\\SensorQueimado\\SensorQueimado\\SensorQueimado\\SensorQueimado.csproj",
       "projectName": "SensorQueimado",
-      "projectPath": "C:\\Users\\giuli\\Desktop\\syloPrime\\Testes\\SensorQueimado\\SensorQueimado\\SensorQueimado\\SensorQueimado.csproj",
+      "projectPath": "C:\\Users\\giuli\\Desktop\\SensorQueimado\\SensorQueimado\\SensorQueimado\\SensorQueimado.csproj",
       "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giuli\\Desktop\\syloPrime\\Testes\\SensorQueimado\\SensorQueimado\\SensorQueimado\\obj\\",
+      "outputPath": "C:\\Users\\giuli\\Desktop\\SensorQueimado\\SensorQueimado\\SensorQueimado\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

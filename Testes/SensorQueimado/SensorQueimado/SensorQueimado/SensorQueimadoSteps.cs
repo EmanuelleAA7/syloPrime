@@ -48,7 +48,7 @@ namespace SensorQueimado
         {
             Assert.AreEqual(5, contador);
             String aviso = sensor.verificarAlerta(contador);
-            Assert.AreEqual("Verifique seus sensores, algum pode estar queimado !", aviso);
+            Assert.AreEqual("Verifique seu sensor de nível 1 do sylo 2, pois pode estar queimado!", aviso);
             Console.WriteLine(aviso);
             sensor.fecharDrive();
         }
