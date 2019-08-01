@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -29,9 +30,9 @@ namespace SensorQueimado
             driver.FindElement(By.Id("email")).SendKeys("TesteTeste");
             driver.FindElement(By.Id("senha")).SendKeys("123456");
             driver.FindElement(By.Id("btn_login")).Click();
-            Thread.Sleep(8000);
-            driver.FindElement(By.XPath("/html/body/div[5]/div/div[3]/button[1]")).Click();
             Thread.Sleep(5000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div/div[3]/button[1]")).Click();
+            Thread.Sleep(8000);
         }
 
         public string GetTemperatura()
@@ -47,19 +48,21 @@ namespace SensorQueimado
         }
        
 
-        internal String verificarAlerta(int contador)
+        internal void verificarAlerta(int contador)
         {
             Thread.Sleep(3000);
             if(contador == 5)
             {
-                string aviso = driver.FindElement(By.Id("swal2-content")).GetAttribute("innerText");
-                return aviso;
+                IWebElement aviso = driver.FindElement(By.Id("swal2-content"));
+                WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+                wait.Until(ExpectedConditions.TextToBePresentInElement(
+                    aviso, "Verifique seu sensor de nível 1 do sylo 2, pois pode estar queimado!"));
+                Assert.Pass("Alerta encontrado!");
                 
             }
             else
             {
-                Console.WriteLine("Não foi identificado nenhum sensor queimado!");
-                return null;
+                Assert.Fail("Não há indícios de que o sensor quemiou!");
             }
 
         }
