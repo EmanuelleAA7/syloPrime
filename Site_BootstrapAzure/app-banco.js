@@ -9,12 +9,12 @@ var configuracoes = {
         options: {
             encrypt: true
         },
-        pool: {
-            max: 4,
-            min: 1,
-            idleTimeoutMillis: 30000,
-            connectionTimeout: 5000
-        }
+        // pool: {
+        //     max: 4,
+        //     min: 1,
+        //     idleTimeoutMillis: 30000,
+        //     connectionTimeout: 5000
+        // }
     },
     desenvolvimento: {
         server: "BASETESTE.database.windows.net",
@@ -34,10 +34,10 @@ sql.on('error', err => {
 
 var perfil = desenvolvimento ? 'desenvolvimento' : 'producao';
 
-function conectar() {
-    //   return sql.connect(configuracoes[perfil])
-    return new sql.ConnectionPool(configuracoes[perfil]).connect();
-}
+// function conectar() {
+//     //   return sql.connect(configuracoes[perfil])
+//     return new sql.ConnectionPool(configuracoes[perfil]).connect();
+// }
 
 function conectar2() {
     return sql.connect(configuracoes[perfil])
@@ -46,6 +46,6 @@ function conectar2() {
 
 module.exports = {
     conectar2: conectar2,
-    conectar: conectar,
+    // conectar: conectar,
     sql: sql
 }

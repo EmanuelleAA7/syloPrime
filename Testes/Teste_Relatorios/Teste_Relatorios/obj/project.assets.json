@@ -6599,23 +6599,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\giuli\\.nuget\\packages\\": {},
+    "C:\\Users\\EmanuelleAlves\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giuli\\Desktop\\Teste_Relatorios\\Teste_Relatorios\\Teste_Relatorios.csproj",
+      "projectUniqueName": "D:\\syloPrime\\Testes\\Teste_Relatorios\\Teste_Relatorios\\Teste_Relatorios.csproj",
       "projectName": "Teste_Relatorios",
-      "projectPath": "C:\\Users\\giuli\\Desktop\\Teste_Relatorios\\Teste_Relatorios\\Teste_Relatorios.csproj",
-      "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giuli\\Desktop\\Teste_Relatorios\\Teste_Relatorios\\obj\\",
+      "projectPath": "D:\\syloPrime\\Testes\\Teste_Relatorios\\Teste_Relatorios\\Teste_Relatorios.csproj",
+      "packagesPath": "C:\\Users\\EmanuelleAlves\\.nuget\\packages\\",
+      "outputPath": "D:\\syloPrime\\Testes\\Teste_Relatorios\\Teste_Relatorios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\giuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EmanuelleAlves\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

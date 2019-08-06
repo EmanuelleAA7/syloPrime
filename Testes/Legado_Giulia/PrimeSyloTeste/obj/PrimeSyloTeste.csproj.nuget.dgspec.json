@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {}
+    "D:\\syloPrime\\Testes\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {
+    "D:\\syloPrime\\Testes\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+        "projectUniqueName": "D:\\syloPrime\\Testes\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
         "projectName": "PrimeSyloTeste",
-        "projectPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
-        "packagesPath": "C:\\Users\\giuli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giuli\\Desktop\\Legado_Giulia\\PrimeSyloTeste\\obj\\",
+        "projectPath": "D:\\syloPrime\\Testes\\Legado_Giulia\\PrimeSyloTeste\\PrimeSyloTeste.csproj",
+        "packagesPath": "C:\\Users\\EmanuelleAlves\\.nuget\\packages\\",
+        "outputPath": "D:\\syloPrime\\Testes\\Legado_Giulia\\PrimeSyloTeste\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\giuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EmanuelleAlves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

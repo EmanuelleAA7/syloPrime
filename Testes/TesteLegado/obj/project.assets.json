@@ -6280,27 +6280,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\EmanuelleAlves\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
+      "projectUniqueName": "D:\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
       "projectName": "TesteLegado",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\obj\\",
+      "projectPath": "D:\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
+      "packagesPath": "C:\\Users\\EmanuelleAlves\\.nuget\\packages\\",
+      "outputPath": "D:\\syloPrime\\Testes\\TesteLegado\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\EmanuelleAlves\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"

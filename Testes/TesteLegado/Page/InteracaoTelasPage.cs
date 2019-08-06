@@ -11,7 +11,7 @@ using System.Threading;
 public class InteracaoTelasPage
 {
     
-        IWebDriver driver = new ChromeDriver(@"C:/Users/Lenovo/Downloads/");
+        IWebDriver drisver = new ChromeDriver(@"C:/Users/Lenovo/Downloads/");
 
     public void AbrirSite()
     {
