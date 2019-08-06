@@ -27,7 +27,7 @@ namespace SensorQueimado
         [Given(@"que os dashboards do silo (.*) estejam com temperatura (.*)")]
         public void GivenQueOsDashboardsDoSiloEstejamComTemperatura(int silo, int p1)
         {
-            contador = sensor.verificarTemperatura(silo, p1) ;
+            contador = sensor.VerificarControle(); ;
             Console.WriteLine("VALOR DO CONTADOR = " + contador);
         }
         
@@ -46,10 +46,8 @@ namespace SensorQueimado
         [Then(@"um alerta aparece na tela")]
         public void ThenUmAlertaApareceNaTela()
         {
-            Assert.AreEqual(5, contador);
-            String aviso = sensor.verificarAlerta(contador);
-            Assert.AreEqual("Verifique seus sensores, algum pode estar queimado !", aviso);
-            Console.WriteLine(aviso);
+            Assert.AreEqual(5, contador);        
+            sensor.verificarAlerta(contador);
             sensor.fecharDrive();
         }
     }
