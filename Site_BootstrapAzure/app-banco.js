@@ -9,22 +9,21 @@ var configuracoes = {
         options: {
             encrypt: true
         },
-<<<<<<< HEAD
         // pool: {
         //     max: 4,
         //     min: 1,
         //     idleTimeoutMillis: 30000,
         //     connectionTimeout: 5000
         // }
-=======
-        pool: {
-            max: 4,
-            min: 1,
-            idleTimeoutMillis: 20000,
-            connectionTimeout: 5000
-        }
->>>>>>> 6928c2595030c8b535a41d8815afe8d6ef3624f1
-    },
+
+       // pool: {
+         //   max: 4,
+           // min: 1,
+           // idleTimeoutMillis: 20000,
+           // connectionTimeout: 5000
+       // }
+
+   // },
     desenvolvimento: {
         server: "BASETESTE.database.windows.net",
         user: "usuariotestes",
