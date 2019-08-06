@@ -11,8 +11,8 @@ var configuracoes = {
         },
         
         pool: {
-             max: 5,
-             min: 1,
+             max: 10000,
+             min: 0,
              idleTimeoutMillis: 30000,
              connectionTimeout: 5000
          }
