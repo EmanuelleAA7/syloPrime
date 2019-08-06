@@ -23,7 +23,7 @@ var configuracoes = {
            // connectionTimeout: 5000
        // }
 
-   // },
+   },
     desenvolvimento: {
         server: "BASETESTE.database.windows.net",
         user: "usuariotestes",
