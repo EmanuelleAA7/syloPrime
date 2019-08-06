@@ -852,12 +852,13 @@
 
     //teste para o on/off
 
- 
-
     let placa_queimada = false;
     let erro_mostrado = false;
-
-    let placa
+ 
+//  teste para aparecer o nome do sylo e qual o seu nivel no alerta de sensor queimado
+    var arrayU = [];
+    // var arrayT = [];
+  
 
 
     function tempoReal() {
@@ -870,10 +871,12 @@
                     let hoje = new Date();
                     let hoje_total = (hoje.getHours()*3600)+ (hoje.getMinutes()*60) + hoje.getSeconds();
 
+
+
                     let cont_erros = 0; 
-                    // para cada sensor
+                    // para cada silo, esse é referente ao cont erros placa.
                     let cont_erros_sensor = 0;
-                    // para cada temperatura
+                    // para sensores, individual
 
                     for (teste_cont = 0; teste_cont < resposta.length; teste_cont++) {
                         for (teste_cont_2 = 0; teste_cont_2 < resposta.length; teste_cont_2++) {
@@ -881,30 +884,45 @@
                                 resposta[teste_cont][teste_cont_2].temperatura == 0) {
                                 cont_erros_sensor++;
                                 cont_erros++;
+                                arrayU.push([teste_cont_2]);
+                                // aqui vou pegar qual nivel é
+
+                                arrayU.push([teste_cont]);
+                                //aqui vai pegar qual sylo é
+                                // console.log(resposta[teste_cont_2]);
+                                // arrayT.push(resposta[teste_cont][teste_cont_2].temperatura);
+                                // aqui vai pegar apenas o nível de algum sylo referente a sua temperatura
                                 if (cont_erros == 4) {
                                     cont_erros_placa++;
                                 }
                             } else {
                                 cont_erros = 0;
                                 // teste
-                                // volta pro zero pra nao ficar acumulandp
+                                // volta pro zero pra nao ficar acumulando o cont erros placa
                             }
                             let hora_leitura = (resposta[teste_cont][teste_cont_2].hora).split(':');
+                            // vai tranformar cada parte do horario, hora, minuto e segundo em um vetor
+                            
+                           // aqui transformo tudo em segundos que nem o horario do pc de agora. e tb vou subtrair da diferença que possui de fuso
                             let segundos_total = ((parseInt(hora_leitura[0])*3600)+ (parseInt(hora_leitura[1])*60)+ parseInt(hora_leitura[2]))- 10800;
-                            if((hoje_total - segundos_total) >= 900){
+                            if((hoje_total - segundos_total) >= 60 ){
                                 placa_queimada = true;
+                                // arrayT.push([teste_cont]);
                             }
                             
                             //subtraindo do fuso horário
                         }
                     }
+
+                    
+
                     if (cont_erros_sensor > 0) {
                         cont_erros_sensores++;
                     }
                     if (cont_erros_sensores > 5) {
                         Swal.fire({
                             title: "Aviso!",
-                            text: `Verifique seus sensores, algum pode estar queimado !`,
+                            text: `Verifique seu sensor de nível ${Number(arrayU[0]) + 1} do sylo ${Number(arrayU[1])+1}, pois pode estar queimado!`,
                             // aqui o numero do silo é identificado
                             type: "warning",
                             button: "Ok!",
@@ -913,7 +931,7 @@
 
                         // teste4 aquiiii aaaaaaaaa
                     }
-                    if (cont_erros_placa > 5) {
+                    if (cont_erros_placa > 5){
                         Swal.fire({
                             title: "Aviso!",
                             text: `Verifique as placas dos arduínos, alguma pode estar danificada!`,
@@ -922,20 +940,9 @@
                         });
                         cont_erros_placa = 0;
                     }
-                    if(placa_queimada== true && erro_mostrado != true){
-                        Swal.fire({
-                            title: "Aviso!",
-                            text: `Leituras antigas, verifique se a placa Aduíno está conectada!`,
-                            type: "warning",
-                            button: "Ok!",
-                        });
+                  
 
-                        erro_mostrado = true;
-                        //pra nao ficar mostrando o alerta toda hora
-                    }
-
-                    // console.log(`Erros Sensores: ${JSON.stringify(cont_erros_sensores)}`)
-                    // console.log(`Erros Placas: ${JSON.stringify(cont_erros_placa)}`) ????? - foi
+                
 
                     for (x = 0; x < resposta.length; x++) {
                         // var contador = 0;
@@ -953,7 +960,7 @@
                             if (resposta[x][y].temperatura > 15) {
                                 document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 1) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Temperatura de ${resposta[x][y].temperatura}ºC 
@@ -969,7 +976,7 @@
                             if (resposta[x][y].umidade > 16) {
                                 document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 1) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Umidade de ${resposta[x][y].umidade}%
@@ -986,7 +993,7 @@
                         if (resposta[x][0].temperatura > 17) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 1) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Temperatura de ${resposta[x][0].temperatura}ºC 
@@ -1002,7 +1009,7 @@
                         if (resposta[x][0].umidade > 75) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 1) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Umidade de ${resposta[x][0].umidade}% 
@@ -1029,6 +1036,24 @@
                         //             }
                         //     }
                     }
+
+
+                    if(placa_queimada == true && erro_mostrado != true){
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Leituras antigas, verifique se a placa Arduíno do sylo  está conectada!`,
+                            // ${Number(arrayT[0])+1}
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        erro_mostrado = true;
+                        
+                        //pra nao ficar mostrando o alerta toda hora
+                    }
+
+
+
+
                 })
             } else {
                 //Swal.fire({

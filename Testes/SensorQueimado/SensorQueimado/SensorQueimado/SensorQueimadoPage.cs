@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -21,7 +22,7 @@ namespace SensorQueimado
 
         public void fecharDrive()
         {
-            driver.Close();
+            driver.Quit();
         }
 
         public void logarUsuario()
@@ -29,52 +30,39 @@ namespace SensorQueimado
             driver.FindElement(By.Id("email")).SendKeys("TesteTeste");
             driver.FindElement(By.Id("senha")).SendKeys("123456");
             driver.FindElement(By.Id("btn_login")).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("/html/body/div[5]/div/div[3]/button[1]")).Click();
-            Thread.Sleep(10000);
+            Thread.Sleep(8000);
         }
 
-        internal int verificarTemperatura(int silo, int indicador_queimado)
-
+        public string GetTemperatura()
         {
-            var cont = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                var temp_atual = driver.FindElement(By.Id("silo3_temp4")).GetAttribute("innerText");
-                var umid_atual = driver.FindElement(By.Id("silo3_umid4")).GetAttribute("innerText");
-
-                Console.WriteLine("A TEMPERATURA ATUAL É: " + temp_atual);
-                Console.WriteLine("A UMIDADE ATUAL É: " + umid_atual);
-
-                if (temp_atual == "0ºC" && umid_atual == "0%")
-                {
-                    Console.WriteLine("Contador" + i);
-                    cont++;
-                }
-                else
-                {
-                    cont = 800;
-                    //os dados estão =! 0
-                }
-                Thread.Sleep(5000);
-            }
-            return cont;
-
+            string temp = driver.FindElement(By.Id("silo3_temp1")).GetAttribute("innerText");
+            return temp;
         }
 
-        internal String verificarAlerta(int contador)
+        public string GetUmidade()
+        {
+            string umid = driver.FindElement(By.Id("silo3_umid1")).GetAttribute("innerText");
+            return umid;
+        }
+       
+
+        internal void verificarAlerta(int contador)
         {
             Thread.Sleep(3000);
             if(contador == 5)
             {
-                string aviso = driver.FindElement(By.Id("swal2-content")).GetAttribute("innerText");
-                return aviso;
+                IWebElement aviso = driver.FindElement(By.Id("swal2-content"));
+                WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+                wait.Until(ExpectedConditions.TextToBePresentInElement(
+                    aviso, "Verifique seu sensor de nível 1 do sylo 2, pois pode estar queimado!"));
+                Assert.Pass("Alerta encontrado!");
                 
             }
             else
             {
-                Console.WriteLine("Não foi identificado nenhum sensor queimado!");
-                return null;
+                Assert.Fail("Não há indícios de que o sensor quemiou!");
             }
 
         }
@@ -84,5 +72,39 @@ namespace SensorQueimado
             string url = driver.Url;
             return url;
         }
+
+        static List<Medidor> medidores;
+        public int VerificarControle()
+        {
+            var contador = 0;
+            medidores = new List<Medidor>();
+
+            for(int i = 0; i<5; i++)
+            {
+                string temperatura = GetTemperatura();
+                string umidade = GetUmidade();
+                medidores.Add(new Medidor(temperatura, umidade));
+                Thread.Sleep(5000);
+            }
+
+            foreach(Medidor item in medidores)
+            {
+                Console.WriteLine(item.Umidade + " " + item.Temperatura);
+                if(item.Temperatura == "0ºC" && item.Umidade == "0%")
+                {
+                    contador++;
+                }
+                else
+                {
+                    contador--;
+                }
+            }
+            return contador;
+        }
+
+
+
+
+
     }
 }

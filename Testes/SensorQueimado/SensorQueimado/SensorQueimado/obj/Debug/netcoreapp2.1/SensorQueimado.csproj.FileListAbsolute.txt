@@ -12,3 +12,17 @@ C:\Users\giuli\Desktop\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\ne
 C:\Users\giuli\Desktop\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.pdb
 C:\Users\giuli\Desktop\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.dll
 C:\Users\giuli\Desktop\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.pdb
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.deps.json
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.runtimeconfig.json
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.runtimeconfig.dev.json
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.dll
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\bin\Debug\netcoreapp2.1\SensorQueimado.pdb
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.csprojAssemblyReference.cache
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.csproj.CoreCompileInputs.cache
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.AssemblyInfoInputs.cache
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.AssemblyInfo.cs
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.dll
+C:\Users\giuli\Desktop\syloPrime\Testes\SensorQueimado\SensorQueimado\SensorQueimado\obj\Debug\netcoreapp2.1\SensorQueimado.pdb

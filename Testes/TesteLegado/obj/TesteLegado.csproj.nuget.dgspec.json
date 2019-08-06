@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\source\\repos\\TesteLegado\\TesteLegado.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\source\\repos\\TesteLegado\\TesteLegado.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\TesteLegado\\TesteLegado.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
         "projectName": "TesteLegado",
-        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\TesteLegado\\TesteLegado.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\TesteLegado.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\TesteLegado\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\syloPrime\\Testes\\TesteLegado\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
