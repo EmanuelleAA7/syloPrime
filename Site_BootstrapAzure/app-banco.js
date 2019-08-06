@@ -9,19 +9,13 @@ var configuracoes = {
         options: {
             encrypt: true
         },
-        // pool: {
-        //     max: 4,
-        //     min: 1,
-        //     idleTimeoutMillis: 30000,
-        //     connectionTimeout: 5000
-        // }
-
-       // pool: {
-         //   max: 4,
-           // min: 1,
-           // idleTimeoutMillis: 20000,
-           // connectionTimeout: 5000
-       // }
+        
+        pool: {
+             max: 10,
+             min: 1,
+             idleTimeoutMillis: 30000,
+             connectionTimeout: 5000
+         }
 
    },
     desenvolvimento: {
