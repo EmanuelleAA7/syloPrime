@@ -10,8 +10,8 @@ var configuracoes = {
             encrypt: true
         },
         pool: {
-            max: 10000,
-            min: 0,
+            max: 400,
+            min: 1,
             idleTimeoutMillis: 30000,
             connectionTimeout: 5000
         }
