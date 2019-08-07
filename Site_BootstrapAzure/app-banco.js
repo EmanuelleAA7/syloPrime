@@ -10,10 +10,10 @@ var configuracoes = {
             encrypt: true
         },
         pool: {
-            max: 400,
+            max: 100,
             min: 1,
             idleTimeoutMillis: 30000,
-            connectionTimeout: 5000
+            connectionTimeout: 15000
         }
     },
     desenvolvimento: {
