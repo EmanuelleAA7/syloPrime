@@ -857,7 +857,7 @@
  
 //  teste para aparecer o nome do sylo e qual o seu nivel no alerta de sensor queimado
     var arrayU = [];
-    var arrayT = [];
+    // var arrayT = [];
   
 
 
@@ -887,7 +887,7 @@
                                 arrayU.push([teste_cont_2]);
                                 // aqui vou pegar qual nivel é
 
-                                arrayT.push([teste_cont]);
+                                arrayU.push([teste_cont]);
                                 //aqui vai pegar qual sylo é
                                 // console.log(resposta[teste_cont_2]);
                                 // arrayT.push(resposta[teste_cont][teste_cont_2].temperatura);
@@ -922,7 +922,7 @@
                     if (cont_erros_sensores > 5) {
                         Swal.fire({
                             title: "Aviso!",
-                            text: `Verifique seu sensor de nível ${Number(arrayU[0]) + 1} do sylo ${Number(arrayT[0])+1}, pois pode estar queimado!`,
+                            text: `Verifique seu sensor de nível ${Number(arrayU[0]) + 1} do sylo ${Number(arrayU[1])+1}, pois pode estar queimado!`,
                             // aqui o numero do silo é identificado
                             type: "warning",
                             button: "Ok!",
@@ -958,11 +958,9 @@
                         }
                         for (y = 1; y < 4; y++) {
                             if (resposta[x][y].temperatura > 15) {
-                                document.getElementById(`silo${x+1}`).classList.remove(`green`); 
-
-                                
+                                document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 6) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Temperatura de ${resposta[x][y].temperatura}ºC 
@@ -978,7 +976,7 @@
                             if (resposta[x][y].umidade > 16) {
                                 document.getElementById(`silo${x+1}`).classList.remove(`green`);
                                 document.getElementById(`silo${x+1}`).classList.add(`red`);
-                                if (contAlerta < 6) {
+                                if (contAlerta < 4) {
                                     Swal.fire({
                                         title: "Aviso!",
                                         text: `Umidade de ${resposta[x][y].umidade}%
@@ -995,7 +993,7 @@
                         if (resposta[x][0].temperatura > 17) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 6) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Temperatura de ${resposta[x][0].temperatura}ºC 
@@ -1011,7 +1009,7 @@
                         if (resposta[x][0].umidade > 75) {
                             document.getElementById(`silo${x+1}`).classList.remove(`green`);
                             document.getElementById(`silo${x+1}`).classList.add(`red`);
-                            if (contAlerta < 6) {
+                            if (contAlerta < 4) {
                                 Swal.fire({
                                     title: "Aviso!",
                                     text: `Umidade de ${resposta[x][0].umidade}% 
