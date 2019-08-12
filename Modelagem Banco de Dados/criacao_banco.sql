@@ -1,3 +1,5 @@
+
+
 CREATE TABLE Produtor(
 	idProdutor INT PRIMARY KEY AUTO_INCREMENT,
     cnpj VARCHAR(14),

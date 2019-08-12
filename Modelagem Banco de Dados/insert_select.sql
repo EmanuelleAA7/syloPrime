@@ -1,3 +1,4 @@
+
 INSERT INTO Produtor VALUES 
 (null,'32441223867547','Teste','Teste','2000-02-04','98274-1234','TesteTeste','SP','Limeiras','09590-039','teste@gmail.com','123456'),
 (null,'98751223867598','Matheus','Risovas','2001-06-19','94235-8579','MatheusRisovas','RS','Ameixas','05560-259','matheusrisovas@gmail.com','832434'),
@@ -82,4 +83,3 @@ INSERT INTO Relatorio_Qualidade VALUES
 
 SELECT * FROM Relatorio_Qualidade;
 
-DROP TABLE Relatorio_Qualidade,Relatorio_Vendas,Leitura,Producao,Cultura,Sensor,Silo,Produtor;

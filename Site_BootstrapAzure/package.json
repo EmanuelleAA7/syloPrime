@@ -12,6 +12,7 @@
     "jspdf": "^1.5.3",
     "morgan": "~1.9.1",
     "mssql": "^5.1.0",
+    "node-inspect": "^1.11.6",
     "serialport": "^7.1.5"
   }
 }
